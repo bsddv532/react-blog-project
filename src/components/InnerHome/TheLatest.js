@@ -14,14 +14,16 @@ const TheLatest = () => {
             <hr className='mainCategoryHr' />
 
             <div className='TheLatestBox'>
-                {rows.filter((value) => value.ID == "2" && (value.Category === "Bollywood" || value.Category === "Fitness" || value.Category === "Hollywood")).map((val) => (
+                {rows.filter((value) => value.ID === "2" && (value.Category === "Bollywood" || value.Category === "Fitness" || value.Category === "Hollywood")).map((val,id) => (
 
-                    <Link to={`/article/${val.Category}/${val.ID}`} className='TheLatestContent'>
+                   <div key={id}>
+                        <Link to={`/article/${val.Category}/${val.ID}`} className='TheLatestContent'>
                         <img src={val.Image} className='TheLatestImg' alt='' />
                         <p className='title'>{val.Title}</p>
                         <p className='body'>{val.Body}</p>
                         <p className='body'><strong>{val.Category}</strong>/ {val.Date}</p>
                     </Link>
+                   </div>
                 ))}
             </div>
 

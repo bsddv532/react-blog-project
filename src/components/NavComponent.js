@@ -3,31 +3,31 @@ import './style.css'
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { BlogContext } from './BlogContext';
-import { useParams } from 'react-router-dom';
 
 const NavComponent = () => {
     const [rows] = useContext(BlogContext)
 
-  return(
-      <div>
-          <div className='heading'>
-              <p className='the'>The</p>
-              <p className='siren'>Siren</p>
-          </div>
+    return (
+        <div>
+            <div className='heading'>
+                <p className='the'>The</p>
+                <p className='siren'>Siren</p>
+            </div>
 
-          <div className='navContainer'>
-              <Link to="/"  className='NavCategory'>Home</Link>
+            <div className='navContainer' >
+                <Link to="/" className='NavCategory'>Home</Link>
 
-              {rows.filter((value)=> value.ID == 1).map((val)=> (
+                {rows.filter((value) => value.ID === "1").map((val,dk) => (
+                    <div key={dk}>
+                        <Link to={`/category/${val.Category}`} className='NavCategory'>{val.Category}</Link>
+                    </div>
 
-              <Link to={`/category/${val.Category}`} className='NavCategory'>{val.Category}</Link>
-              
-              ))}
-          </div>
-          <hr className='navHr'/>
+                ))}
+            </div>
+            <hr className='navHr' />
 
-      </div>
-  );
+        </div>
+    );
 };
 
 export default NavComponent;

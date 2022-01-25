@@ -1,11 +1,9 @@
-
 import React from 'react';
 import { useContext, useState } from 'react';
 import { BlogContext } from '../BlogContext';
 import TopPostHome from './TopPostHome';
 import Advertisement from '../Advertisement';
 import { Link } from 'react-router-dom';
-
 
 
 const LatestArticles = () => {
@@ -21,13 +19,13 @@ const LatestArticles = () => {
             <div className='blogBody'>
 
                 <div>
-                    {rows.filter((value) => (load ? (value.ID <= 6) : (value.ID <= 8)) && value.Category === "Bollywood").map((val) => (
+                    {rows.filter((value) => (load ? (value.ID <= 6) : (value.ID <= 8)) && value.Category === "Bollywood").map((val, id) => (
 
-                        <div>
+                        <div key={id}>
                             <Link to={`/article/${val.Category}/${val.ID}`}>
 
                                 <div className='blogContainer'>
-                                    <img src={val.Image} className='blogImg' />
+                                    <img src={val.Image} className='blogImg' alt="" />
                                     <div className='blogContent'>
                                         <p className='blogTitle'>{val.Title}</p>
                                         <p className='blogDetail'>{val.Body}</p>
@@ -57,4 +55,3 @@ const LatestArticles = () => {
 };
 
 export default LatestArticles;
-

@@ -27,7 +27,7 @@ const AllCategory = () => {
                         <Link to={`/article/${val.Category}/${val.ID}`}>
 
                             <div className='blogContainer'>
-                                <img src={val.Image} className='blogImg' />
+                                <img src={val.Image} className='blogImg' alt='' />
                                 <div className='blogContent'>
                                     <p className='blogTitle'>{val.Title}</p>
                                     <p className='blogDetail'>{val.Body}</p>
