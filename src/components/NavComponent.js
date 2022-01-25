@@ -7,27 +7,26 @@ import { BlogContext } from './BlogContext';
 const NavComponent = () => {
     const [rows] = useContext(BlogContext)
 
-    return (
-        <div>
-            <div className='heading'>
-                <p className='the'>The</p>
-                <p className='siren'>Siren</p>
-            </div>
+  return(
+      <div>
+          <div className='heading'>
+              <p className='the'>The</p>
+              <p className='siren'>Siren</p>
+          </div>
 
-            <div className='navContainer' >
-                <Link to="/" className='NavCategory'>Home</Link>
+          <div className='navContainer' >
+              <Link to="/"  className='NavCategory'>Home</Link>
 
-                {rows.filter((value) => value.ID === "1").map((val,dk) => (
-                    <div key={dk}>
-                        <Link to={`/category/${val.Category}`} className='NavCategory'>{val.Category}</Link>
-                    </div>
+              {rows.filter((value)=> value.ID ==1).map((val)=> (
 
-                ))}
-            </div>
-            <hr className='navHr' />
+              <Link to={`/category/${val.Category}`} className='NavCategory'>{val.Category}</Link>
+              
+              ))}
+          </div>
+          <hr className='navHr'/>
 
-        </div>
-    );
+      </div>
+  );
 };
 
 export default NavComponent;

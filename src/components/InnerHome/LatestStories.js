@@ -13,23 +13,20 @@ const LatestStories = () => {
 
 
     return (
-        <div className='TheLatestContainer' >
+        <div className='TheLatestContainer'>
             <p className='mainCategory'>Latest Stories</p>
             <hr className='mainCategoryHr' />
             <hr />
             <div className='TheLatestBox'>
-                {rows.filter((value) => (load ? (value.ID === "3") : (value.ID <= 4)) && (value.Category === "Food" || value.Category === "Fitness" || value.Category === "Hollywood")).map((val) => (
-                    
-                    <div key={val.Category}>
+                {rows.filter((value) => (load ? (value.ID == "3") : (value.ID <= 4)) && (value.Category === "Food" || value.Category === "Fitness" || value.Category === "Hollywood")).map((val) => (
+                    <>
                         <Link to={`/article/${val.Category}/${val.ID}`} className='TheLatestStories'>
                             <p className='title'>{val.Title}</p>
                             <p className='body'>{val.Body}</p>
                             <p className='body'><strong>{val.Category}</strong>/ {val.Date}</p>
                         </Link>
-    
-                        
                         <hr className='TheLatestStoriesHr' />
-                        </div>
+                    </>
 
                 ))}
             </div>

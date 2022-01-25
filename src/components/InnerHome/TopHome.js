@@ -12,24 +12,22 @@ const TopHome = () => {
     return (
         <div className='topHomeContainer'>
             <div className='topHomeContainer-1'>
-                {rows.filter((value) => value.ID === "4" && value.Category === "Food").map((val,id) => (
-                    <div key={id}>
+                {rows.filter((value) => value.ID == "4" && value.Category === "Food").map((val) => (
 
                     <Link to={`/article/${val.Category}/${val.ID}`}>
-                        <img src={val.Image} className='topHomeImg1' alt="" />
+                        <img src={val.Image} className='topHomeImg1' />
                         <div className='topHomeContent1'>
                             <p className='topHomeTitle1'>{val.Title}</p>
                             <p className='topHomeCat1'>{val.Category} / {val.Date}</p>
                         </div>
                     </Link>
-                    </div>
                 ))}
             </div>
 
 
             <div className='topHomeContainer-2'>
-                {rows.filter((value) => value.ID === "3" && (value.Category === "Technology" || value.Category === "Fitness")).map((val,id2) => (
-                    <div className='box' key={id2}>
+                {rows.filter((value) => value.ID == "3" && (value.Category === "Technology" || value.Category === "Fitness")).map((val) => (
+                    <div className='box'>
                         <Link to={`/article/${val.Category}/${val.ID}`}>
                             <img src={val.Image} className='topHomeImg2' alt='' />
                             <div className='topHomeContent2'>

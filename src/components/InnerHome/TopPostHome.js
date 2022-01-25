@@ -16,12 +16,12 @@ const TopPostHome = () => {
             <hr className='mainCategoryHr' />
             <div>
 
-                {rows.filter((value) => value.ID === 1 && value.Category === "Bollywood").map((val) => (
+                {rows.filter((value) => value.ID == 1 && value.Category === "Bollywood").map((val) => (
                     <div>
                         <Link to={`/article/${val.Category}/${val.ID}`}>
 
                             <div className='LatestContainer'>
-                                <img src={val.Image} className='LatestImg' alt="" />
+                                <img src={val.Image} className='LatestImg' />
                                 <div className='flexBox'>
                                     <div>
                                         <p className='blogTitle'>{val.Title}</p>
@@ -36,12 +36,12 @@ const TopPostHome = () => {
                 ))}
 
 
-                {rows.filter((value) => ((value.ID === 2 && value.Category === "Hollywood") || (value.ID === 3 && value.Category === "Food") ||  (value.ID === 4 && value.Category === "Technology"))).map((val) => (
+                {rows.filter((value) => ((value.ID == 2 && value.Category === "Technology") || (value.ID == 3 && value.Category === "Hollywood") ||  (value.ID == 4 && value.Category === "Food"))).map((val) => (
                     <div>
                         <Link to={`/article/${val.Category}/${val.ID}`}>
 
                             <div className='SubContainer'>
-                                <img src={val.Image} className='SubImg' alt="" />
+                                <img src={val.Image} className='SubImg' />
                                 <div>
                                     <p className='blogTitle'>{val.Title}</p>
                                     <p className='blogCategory'>{val.Category}</p>
